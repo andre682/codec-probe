@@ -3,7 +3,10 @@ var fs = require('fs')
 var path = require('path');
 
 const checkMp4Codec = (videoFile) => {
-    console.log(Mux.mp4.probe.tracks(videoFile))
+    const tracks = Mux.mp4.probe.tracks(videoFile)
+    console.log(tracks)
+    video = tracks.filter((t) => t.type == 'video')
+    audio = tracks.filter((t) => t.type == 'audio')
 }
 
 const videoFolder = './videos'
